@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="confirmationModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="confirmationModalLabel">Appointment Confirmation</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id="modalMessage">
+          <!-- The message will be injected here by JavaScript -->
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.getElementById('appointmentForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent default form submission
+        
+        const formData = new FormData(this);
+    
+        fetch("{% url 'book_appoinment' child_id=child_id %}", {
+            method: "POST",
+            body: formData,
+            headers: {
+                "X-CSRFToken": "{{ csrf_token }}", // Include CSRF token for Django
+            },
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.message) {
+                // Inject the message into the modal
+                document.getElementById('modalMessage').innerText = data.message;
+    
+                // Show the modal
+                var myModal = new bootstrap.Modal(document.getElementById('confirmationModal'));
+                myModal.show();
+            } else if (data.errors) {
+                // Handle form errors here if needed
+                console.error("Form errors:", data.errors);
+            }
+        })
+        .catch(error => console.error("Error:", error));
+    });
+    </script>
+{% endblock %}

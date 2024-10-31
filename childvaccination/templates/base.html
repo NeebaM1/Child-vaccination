@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=2, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <title>PrimeCare</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+  <!--owl slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
+  <!-- fonts awesome style -->
+  <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet" />
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Poppins:400,500,700&display=swap" rel="stylesheet" />
+
+  <!-- Custom styles for this template -->
+  <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="{% static 'css/responsive.css' %}" rel="stylesheet" />
+</head>
+
+<body>
+
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="contact_nav_container">
+        <div class="container">
+          <div class="contact_nav">
+            <a href="">
+              <i class="fa fa-map-marker" aria-hidden="true"></i>
+              <span>
+                Address : wisigaton lpusm loram
+              </span>
+            </a>
+            <a href="">
+              <i class="fa fa-envelope" aria-hidden="true"></i>
+              <span>
+                Email : demo@gmail.com
+              </span>
+            </a>
+            <a href="">
+              <i class="fa fa-phone" aria-hidden="true"></i>
+              <span>
+                Phone Call : +01 123455678990
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div >
+        <nav class="navbar navbar-expand-lg navbar-light bg-light ">
+  <div class="container-fluid ">
+    <a class="navbar-brand" href="#">E-Vaccination</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'vaccination:home' %}">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'vaccination:about' %}">About</a>
+        </li>
+        {% if user.is_authenticated %}
+        
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Parent
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="{% url 'parent:view_details' user.id %}">view child details</a></li>
+            <li><a class="dropdown-item" href="{% url 'parent:add_info' user.id %}">add child details</a></li>
+             {% comment %} <li><a class="dropdown-item" href="{% url 'parent:book_appoinment'  %}">book appoinment</a></li> {% endcomment %}
+             <li><a class="dropdown-item" href="{% url 'parent:my_profile' user.id %}">my profile</a></li>
+             <li><a class="dropdown-item" href="{% url 'parent:appoinmentdetail'  %}">appoinment detail</a></li>
+
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'vaccination:logout' %}">Logout <i class="fa fa-user" aria-hidden="true"></i></a>
+        </li>
+        {% else %}
+        {% comment %} <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Hospital
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#">view child details</a></li>
+            <li><a class="dropdown-item" href="#">confirm appoinment</a></li>
+
+             <li><a class="dropdown-item" href="#">my profile</a></li>
+
+          </ul>
+        </li> {% endcomment %}
+
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'vaccination:register' %}">Register <i class="fa fa-user" aria-hidden="true"></i></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'vaccination:login' %}">Login  <i class="fa fa-user" aria-hidden="true"></i></a>
+        </li>
+      </ul>
+      {% endif %}
+
+            
+          </div>
+
+      </div>
+
+    </div>
+
+</nav>
+    </header>
+
+<!--        <nav class="navbar navbar-expand-lg custom_nav-container">-->
+<!--          <div class="custom_menu-btn">-->
+<!--            <button onclick="openNav()">-->
+<!--              <span class="s-1"> </span>-->
+<!--              <span class="s-2"> </span>-->
+<!--              <span class="s-3"> </span>-->
+<!--            </button>-->
+<!--          </div>-->
+<!--          <div id="myNav" class="overlay">-->
+<!--            <div class="menu_btn-style ">-->
+<!--              <button onclick="closeNav()">-->
+<!--                <span class="s-1"> </span>-->
+<!--                <span class="s-2"> </span>-->
+<!--                <span class="s-3"> </span>-->
+<!--              </button>-->
+<!--            </div>-->
+<!--            <div class="overlay-content">-->
+<!--              <a class="active" href="{% url 'vaccination:home' %}"> Home <span class="sr-only">(current)</span></a>-->
+<!--              <a class="" href="{% url 'vaccination:about' %}"> About</a>-->
+<!--              <a class="" href=""> Why Us </a>-->
+<!--              <a class="" href=""> Our Team</a>-->
+<!--              <a class="" href=""> Testimonial</a>-->
+<!--              <a class="" href=""> Contact Us</a>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <a class="navbar-brand" href="" >-->
+<!--            <span >-->
+<!--              Child Vaccination-->
+<!--            </span>-->
+<!--          </a>-->
+
+
+    <!-- end header section -->
+    {% block content %}
+    {% endblock %}
+  <!-- info section -->
+
+<!--  <section class="info_section layout_padding2">-->
+<!--    <div class="container">-->
+<!--      <div class="row">-->
+<!--        <div class="col-md-4">-->
+<!--          <div class="info_contact">-->
+<!--            <h5>-->
+<!--              Address-->
+<!--            </h5>-->
+<!--            <div class="contact_link_box">-->
+<!--              <a href="">-->
+<!--                <i class="fa fa-map-marker" aria-hidden="true"></i>-->
+<!--                <span>-->
+<!--                  Location-->
+<!--                </span>-->
+<!--              </a>-->
+<!--              <a href="">-->
+<!--                <i class="fa fa-phone" aria-hidden="true"></i>-->
+<!--                <span>-->
+<!--                  Call +01 1234567890-->
+<!--                </span>-->
+<!--              </a>-->
+<!--              <a href="">-->
+<!--                <i class="fa fa-envelope" aria-hidden="true"></i>-->
+<!--                <span>-->
+<!--                  demo@gmail.com-->
+<!--                </span>-->
+<!--              </a>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="info_social">-->
+<!--            <a href="">-->
+<!--              <i class="fa fa-facebook" aria-hidden="true"></i>-->
+<!--            </a>-->
+<!--            <a href="">-->
+<!--              <i class="fa fa-twitter" aria-hidden="true"></i>-->
+<!--            </a>-->
+<!--            <a href="">-->
+<!--              <i class="fa fa-linkedin" aria-hidden="true"></i>-->
+<!--            </a>-->
+<!--            <a href="">-->
+<!--              <i class="fa fa-instagram" aria-hidden="true"></i>-->
+<!--            </a>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <div class="col-md-4">-->
+<!--          <div class="info_link_box">-->
+<!--            <h5>-->
+<!--              Navigation-->
+<!--            </h5>-->
+<!--            <div class="info_links">-->
+<!--              <a class="active" href="index.html"> <i class="fa fa-angle-right" aria-hidden="true"></i> Home <span class="sr-only">(current)</span></a>-->
+<!--              <a class="" href="about.html"> <i class="fa fa-angle-right" aria-hidden="true"></i> About</a>-->
+<!--              <a class="" href="why.html"> <i class="fa fa-angle-right" aria-hidden="true"></i> Why Us </a>-->
+<!--              <a class="" href="team.html"> <i class="fa fa-angle-right" aria-hidden="true"></i> Our Team</a>-->
+<!--              <a class="" href="testimonial.html"> <i class="fa fa-angle-right" aria-hidden="true"></i> Testimonial</a>-->
+<!--              <a class="" href="contact.html"> <i class="fa fa-angle-right" aria-hidden="true"></i> Contact Us</a>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <div class="col-md-4">-->
+<!--          <h5>-->
+<!--            Newsletter-->
+<!--          </h5>-->
+<!--          <form action="">-->
+<!--            <input type="text" placeholder="Enter Your email" />-->
+<!--            <button type="submit">-->
+<!--              Subscribe-->
+<!--            </button>-->
+<!--          </form>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </section>-->
+
+  <!-- end info section -->
+  <!-- footer section -->
+  <footer class="footer_section container-fluid" style="background-color:black;">
+    <p>
+      &copy; <span id="displayYear"></span> All Rights Reserved. Design by
+      <a href="https://html.design/">Free Html Templates</a>
+    </p>
+  </footer>
+  <!-- footer section -->
+
+  <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+  <script src="{% static 'js/bootstrap.js' %}"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+  <script src="{% static 'js/custom.js' %}"></script>
+
+</body>
+
+</html>

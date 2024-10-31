@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% for i in detail %}
+
+<div class="p-5">
+  <ul>
+
+        <div class='container ' style="background-color: #82c419;">
+          <div class='row'>
+            <div class='col-sm-12 border p-5 '>
+            <h1 class="text-center">Child Details</h1>
+            <div>
+              <table class='table table-bordered'>
+
+                <tbody>
+                <tr>
+                  <th>Name</th>
+                  <td>{{i.child_name}}</td>
+                  </tr>
+                  <tr>
+                  <th>Father Name</th>
+                  <td>{{i.child_father_name}}</td>
+                  </tr>
+                  <tr>
+                  <th>Mother Name</th>
+                  <td>{{i.child_mother_name}}</td>
+                  </tr>
+                  <tr>
+                  <th>Date Of Birth</th>
+
+                  <td>{{i.child_dob}}</td>
+                  </tr>
+                  <tr>
+                  <th>Age</th>
+                  <td>{{i.child_age}}</td>
+                </tr>
+                 <tr>
+                  <th>Address</th>
+                  <td>{{i.child_address}}</td>
+                </tr>
+                 <tr>
+                  <th>Contact Number</th>
+                  <td>{{i.child_ph}}</td>
+                </tr>
+
+                </tbody>
+              </table>
+              <div >
+                <div class="row">
+                  <div class="col-2">
+
+                  </div>
+                  <div class="col-9">
+              <a style="text-decoration:none;font-size:20px;" href="{% url 'parent:editchild_details' i.id %}" class="btn btn-primary">Edit Details</a>
+              <a style="text-decoration:none;font-size:20px;" href="{% url 'parent:delete_details' i.id %}" class="btn btn-primary">Delete</a>
+              
+              <a style="text-decoration:none;font-size:20px;" href="{% url 'parent:vaccine_details' i.id %}" class="btn btn-primary">Add Vaccine Details</a>
+              <a style="text-decoration:none;font-size:20px;" href="{% url 'parent:book_appoinment' i.id %}" class="btn btn-primary">Book Vaccine</a>
+            
+                    </div>
+                  </div>
+                </div>
+              </div>
+              </div>
+            </div>
+        </div>
+
+    </ul>
+    </div>
+{% endfor %}
+{% endblock %}

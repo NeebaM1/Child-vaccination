@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container text-center border border-2 mb-4 mt-4" style="width:500px;background-color: #82c419;">
+    <h2 class="p-4">Hello {{ detail.child_name }}</h2>
+
+    <div class="mb-3">
+        {% for i in child_vaccine %}
+        <div class="container border border-2 mb-3" style="width:400px;background-color:white">
+            <div class="mb-3">
+                <label class="form-label">Vaccine Name</label>
+                <input type="text" name="vaccine_name" value="{{ i.vaccine }}" class="form-control" readonly>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Expected Date</label>
+                <input type="text" name="expected_date" value="{{ i.expected_date }}" class="form-control" readonly>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Vaccine Date</label>
+                <input type="text" name="vaccine_date" value="{{ i.vaccine_date }}" class="form-control" readonly>
+            </div>
+
+            <!-- Button to trigger modal -->
+            <div class="mb-3">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addVaccineModal{{ i.id }}">
+                    Add Vaccine Date
+                </button>
+            </div>
+        </div>
+
+        <!-- Modal for adding the vaccine date -->
+        <div class="modal fade" id="addVaccineModal{{ i.id }}" tabindex="-1" aria-labelledby="exampleModalLabel{{ i.id }}" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <h1>{{i.id}}</h1>
+                    <h3>{{i.child.id}}</h3>
+                    <form method="POST" action="{% url 'parent:add_vaccine_date' i.id %}">
+                        {% csrf_token %}
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel{{ i.id }}">Add Vaccine Date</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="mb-3">
+                                <label class="form-label">Add Date</label>
+                                <input type="date" name="add_date" class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <input type="submit" value="Save Date" class="btn btn-primary">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <p>No vaccines recorded for this child yet.</p>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

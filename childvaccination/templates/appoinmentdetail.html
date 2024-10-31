@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container text-center border border-2 mb-4  p-5" style="width:500px;background-color: #82c419;">
+    <h1 class="p-2">Appointment Details</h1>
+
+{% for i in appoinment %}
+<div class="container  border border-2 mb-3" style="width:400px;background-color:white">
+    <div class="mb-3">
+        <label class="form-label">Child Name</label>
+        <input type="text" name="child_name" value={{i.child}}  class="form-control" readonly>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Vaccine Name</label>
+        <input type="text" name="vaccine_name" value={{i.vaccine}} class="form-control" readonly>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Booked Date</label>
+        <input type="text" name="booked_date" value={{i.appoinment_date|date:"d-m-y"}} class="form-control" readonly>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Status</label>
+        <input type="text" name="status" value={{i.appoinment_status}} class="form-control" readonly>
+    </div>
+</div>
+{% endfor %}
+</div>
+
+{% endblock %}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="p-5" style="position:relative;left:500px;" >
+<div class="card text-center "  style="width:500px;background-color: #82c419;">
+  <div class="card-body">
+    <h2 class="card-title">Hello... {{profile.first_name}}</h2>
+
+    <h5 class="card-title">Username:</h5>
+    <p class="card-text">{{profile.username}}</p>
+
+    <h5 class="card-title">First name:</h5>
+
+    <p class="card-text">{{profile.first_name}}</p>
+    <h5 class="card-title">Last name:</h5>
+
+    <p class="card-text">{{profile.last_name}}</p>
+
+
+    <h5 class="card-title">Email:</h5>
+    <p class="card-text">{{profile.email}}</p>
+
+    <a href="{% url 'parent:edit_profile' profile.id %}" class="card-link btn btn-primary" >Edit Profile</a>
+
+  </div>
+</div>
+  </div>
+
+{% endblock %}

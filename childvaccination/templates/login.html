@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+  <center>
+    <div class="border border-2 mb-3 mt-4 " style="width:500px;background-color: #82c419;">
+    <h3>Login</h3>
+<form method="POST" >
+    {% csrf_token %}
+    <div class="mb-3 mt-4">
+  <label  class="form-label ">User name <i class="fa fa-user" aria-hidden="true"></i></label>
+  <input type="text" class="form-control" name="u" placeholder="Enter user name">
+</div>
+      <div class="mb-3">
+  <label  class="form-label">Password <i class="fa fa-lock" aria-hidden="true"></i></label>
+  <input type="password" class="form-control" name="p" placeholder="Enter password">
+</div>
+    <div class="mb-3 mt-3">
+
+   <input type="submit" class="form-control " style="background-color:black;">
+</div>
+</form>
+
+
+     {% if messages %}
+    <ul class="messages">
+    {% for message in messages %}
+    <li>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+    </div>
+
+
+{% endblock %}

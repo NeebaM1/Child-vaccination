@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    <div class='container border border-2' style="width:500px;background-color: #82c419;">
+        <h3 class="text-center">Add child Details</h3>
+        <div class="mb-3">
+            <label class="form-label">Child Name</label>
+            <input type="text" name="chn" class="form-control">
+        </div>
+          <div class="mb-3">
+            <label class="form-label">Father Name</label>
+            <input type="text" name='chf' class="form-control">
+        </div>
+          <div class="mb-3">
+            <label class="form-label">Mother Name</label>
+            <input type="text" name="chm" class="form-control">
+        </div>
+          <div class="mb-3">
+            <label for='dob' class="form-label">Date of Birth</label>
+            <input type="date" id="dob" name="dob" onchange="calculateAge()" class="form-control">
+        </div>
+          <div class="mb-3">
+            <label class="form-label">Age</label>
+            <input type="text" id="age" name='age' class="form-control">
+        </div>
+<!--        <div class="mb-3">-->
+<!--            <label class="form-label">Age(in month)</label>-->
+<!--            <input type="text" id="month" name='month' class="form-control">-->
+<!--        </div>-->
+
+         <div class="mb-3">
+            <label class="form-label">Contact Number</label>
+            <input type="number" name='cn' class="form-control">
+        </div>
+          <div class="mb-3">
+            <label class="form-label">Address</label>
+              <textarea class="form-control" name="ad"></textarea>
+        </div>
+
+        <div class="mb-3">
+            <input type="submit" value="ADD DETAILS">
+        </div>
+    </div>
+</form>
+<script>
+        function calculateAge() {
+            const dob = document.getElementById('dob').value;
+            const dobDate = new Date(dob);  // Date of birth
+            const today = new Date();  // Current date
+
+            let ageYears = today.getFullYear() - dobDate.getFullYear();  // Calculate the difference in years
+            let ageMonths = today.getMonth() - dobDate.getMonth();  // Calculate the difference in months
+            const ageDays = today.getDate() - dobDate.getDate();  // Calculate the difference in days
+
+            // Adjust if the birthday hasn't occurred this year yet
+            if (ageMonths < 0 || (ageMonths === 0 && ageDays < 0)) {
+                ageYears--;  // Decrease age by 1 year
+                ageMonths += 12;  // Add 12 months if the current month is before the birth month
+            }
+
+            if (ageDays < 0) {
+                ageMonths--;  // Adjust months if the day of birth hasn't passed in the current month
+                if (ageMonths < 0) {
+                    ageYears--;  // Adjust year if needed
+                    ageMonths += 12;  // Adjust months again to be within range
+                }
+            }
+
+            // Display the calculated age in years and months
+            document.getElementById('age').value = ageYears+' years'+' '+ageMonths+' months';
+
+        }
+</script>
+
+{% endblock %}

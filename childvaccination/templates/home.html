@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!-- slider section -->
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="{% static 'images/vaccination1.jpg' %}" style="height:400px;width:100%;" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'images/vaccination2.jpg' %}" style="height:400px;width:100%;" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'images/vaccination3.jpg' %}" style="height:400px;width:100%;" class="d-block w-100" alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+  <!-- service section -->
+
+<!--  <section class="service_section ">-->
+<!--    <div class="container">-->
+<!--      <div class="row">-->
+<!--        <div class="col-lg-3 col-md-6">-->
+<!--          <div class="box">-->
+<!--            <div class="img-box">-->
+<!--              <img src="{{image.url}}" alt="" />-->
+<!--            </div>-->
+<!--            <div class="detail-box">-->
+<!--              <h4>-->
+<!--                Baby Milk-->
+<!--              </h4>-->
+<!--              <p>-->
+<!--                available, but the majority have suffered alteration in some form, by injected-->
+<!--              </p>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <div class="col-lg-3 col-md-6">-->
+<!--          <div class="box ">-->
+<!--            <div class="img-box">-->
+<!--              <img src="{% static 'images/service2.png' %}" alt="" />-->
+<!--            </div>-->
+<!--            <div class="detail-box">-->
+<!--              <h4>-->
+<!--                Baby Clothes-->
+<!--              </h4>-->
+<!--              <p>-->
+<!--                available, but the majority have suffered alteration in some form, by injected-->
+<!--              </p>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <div class="col-lg-3 col-md-6">-->
+<!--          <div class="box">-->
+<!--            <div class="img-box">-->
+<!--              <img src="{% static 'images/service3.png' %}" alt="" />-->
+<!--            </div>-->
+<!--            <div class="detail-box">-->
+<!--              <h4>-->
+<!--                Baby-->
+<!--              </h4>-->
+<!--              <p>-->
+<!--                available, but the majority have suffered alteration in some form, by injected-->
+<!--              </p>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <div class="col-lg-3 col-md-6">-->
+<!--          <div class="box">-->
+<!--            <div class="img-box">-->
+<!--              <img src="{% static 'images/service4.png' %}" alt="" />-->
+<!--            </div>-->
+<!--            <div class="detail-box">-->
+<!--              <h4>-->
+<!--                Baby Walk-->
+<!--              </h4>-->
+<!--              <p>-->
+<!--                available, but the majority have suffered alteration in some form, by injected-->
+<!--              </p>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </section>-->
+
+  <!-- end service section -->
+
+  <!-- about section -->
+
+  <section class="about_section layout_padding">
+    <div class="container-fluid">
+      <div class="box">
+        <div class="img-box">
+          <img src="{% static 'images/about-img.jpg' %}" alt="" />
+        </div>
+        <div class="detail-box">
+          <h2>
+            About
+          </h2>
+          <p>
+           Immunizations can save your child's life. Because of advances in medical science, your child can be protected against more diseases than ever before. Some diseases that once injured or killed thousands of children have been eliminated completely, and others are close to extinction – primarily due to safe and effective vaccines. Polio is one example of the great impact that vaccines have had in the United States. Polio was once America's most-feared disease, causing death and paralysis across the country, but today, thanks to vaccination, there are no reports of polio in the United States.
+          </p>
+          <a href="">
+            <span>
+              Read More
+            </span>
+            <hr />
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end about section -->
+
+  <!-- we have section -->
+
+  <section class="wehave_section">
+    <div class="container-fluid">
+      <div class="box">
+        <div class="detail-box">
+          <h2>
+            Get Vaccinated
+          </h2>
+          <p>
+           You can get most recommended vaccines at your doctor’s office, and many recommended vaccines are also available at local pharmacies, health centers, health departments, and travel clinics.
+          </p>
+          <a href="">
+            <span>
+              Read More
+            </span>
+            <hr />
+          </a>
+        </div>
+        <div class="img-box">
+          <img src="{% static 'images/we_img.jpg' %}" alt="" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end we have section -->
+
+  <!-- why section -->
+
+  <section class="why_section layout_padding">
+    <div class="container">
+      <div class="heading_container">
+        <h2>
+         Services
+        </h2>
+        <p>
+          words which don't look even slightly believable. If you are going to use a passage m
+        </p>
+      </div>
+      <div class="why_container">
+        <div class="box">
+          <div class="img-box">
+            <img src="{% static 'images/schedule.png' %}" alt="" />
+          </div>
+          <div class="detail-box">
+            <h5>
+             Schedule
+            </h5>
+
+          </div>
+        </div>
+        <div class="box">
+          <div class="img-box">
+            <img src="{% static 'images/book_appoinment.png' %}" alt="" />
+          </div>
+          <div class="detail-box">
+            <h5>
+             Book Appoinment
+            </h5>
+
+          </div>
+        </div>
+        <div class="box">
+          <div class="img-box">
+            <img src="{% static 'images/tracking.png' %}" alt="" />
+          </div>
+          <div class="detail-box">
+            <h5>
+              Tracking
+            </h5>
+
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- end why section -->
+
+  <!-- team section -->
+
+
+
+  <!-- contact section -->
+
+  <section class="contact_section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 mx-auto">
+          <div class="contact-form">
+            <div class="heading_container">
+              <h2>
+                Get In Touch
+              </h2>
+            </div>
+            <form action="">
+              <input type="text" placeholder="Full name " />
+              <div class="top_input">
+                <input type="email" placeholder="Email" />
+                <input type="text" placeholder="Phone Number" />
+              </div>
+              <input type="text" placeholder="Message" class="message_input" />
+              <div class="btn-box">
+                <button>
+                  Send
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end contact section -->
+
+  <!-- client section -->
+
+  <section class="client_section layout_padding">
+    <div class="container">
+      <div class="heading_container">
+        <h2>
+          Testimonial
+        </h2>
+      </div>
+      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="box">
+              <div class="img-box">
+                <img src="{% static 'images/client.jpg' %}" alt="" />
+              </div>
+              <div class="client_detail">
+                <div class="client_name">
+                  <div class="client_info">
+                    <h4>
+                      Roocky Rom
+                    </h4>
+                    <span>
+                      Parante
+                    </span>
+                  </div>
+                  <i class="fa fa-quote-left" aria-hidden="true"></i>
+                </div>
+                <p>
+                  use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="box">
+              <div class="img-box">
+                <img src="{% static 'images/client.jpg' %}" alt="" />
+              </div>
+              <div class="client_detail">
+                <div class="client_name">
+                  <div class="client_info">
+                    <h4>
+                      Roocky Rom
+                    </h4>
+                    <span>
+                      Parante
+                    </span>
+                  </div>
+                  <i class="fa fa-quote-left" aria-hidden="true"></i>
+                </div>
+                <p>
+                  use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="box">
+              <div class="img-box">
+                <img src="{% static 'images/client.jpg' %}" alt="" />
+              </div>
+              <div class="client_detail">
+                <div class="client_name">
+                  <div class="client_info">
+                    <h4>
+                      Roocky Rom
+                    </h4>
+                    <span>
+                      Parante
+                    </span>
+                  </div>
+                  <i class="fa fa-quote-left" aria-hidden="true"></i>
+                </div>
+                <p>
+                  use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <ol class="carousel-indicators">
+          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- end client section -->
+
+
+
+{% endblock %}

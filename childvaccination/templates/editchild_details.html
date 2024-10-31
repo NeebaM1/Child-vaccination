@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    <div class='container border border-2' style="width:500px;background-color: #82c419;">
+        <h3 class="text-center">Edit child Details</h3>
+        {{form.as_p}}
+<!--        <div class="mb-3">-->
+<!--            <label class="form-label">Child Name</label>-->
+<!--            <input type="text" value="{{ch_detail.child_name}}" name="chn" class="form-control">-->
+<!--        </div>-->
+<!--          <div class="mb-3">-->
+<!--            <label class="form-label">Father Name</label>-->
+<!--            <input type="text" value="{{ch_detail.child_father_name}}" name='chf' class="form-control">-->
+<!--        </div>-->
+<!--          <div class="mb-3">-->
+<!--            <label class="form-label">Mother Name</label>-->
+<!--            <input type="text" value="{{ch_detail.child_mother_name}}" name="chm" class="form-control">-->
+<!--        </div>-->
+<!--          <div class="mb-3">-->
+<!--            <label for='dob' class="form-label">Date of Birth</label>-->
+<!--            <input type="date" value="{{ch_detail.child_dob }}" id="dob" name="dob" onchange="calculateAge()" class="form-control">-->
+<!--        </div>-->
+<!--          <div class="mb-3">-->
+<!--            <label class="form-label">Age</label>-->
+<!--            <input type="text" value="{{ch_detail.child_age}}" id="age" name='age' class="form-control">-->
+<!--        </div>-->
+<!--&lt;!&ndash;        <div class="mb-3">&ndash;&gt;-->
+<!--&lt;!&ndash;            <label class="form-label">Age(in month)</label>&ndash;&gt;-->
+<!--&lt;!&ndash;            <input type="text" id="month" name='month' class="form-control">&ndash;&gt;-->
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+
+<!--         <div class="mb-3">-->
+<!--            <label class="form-label">Contact Number</label>-->
+<!--            <input type="number" value="{{ch_detail.child_ph}}" name='cn' class="form-control">-->
+<!--        </div>-->
+<!--          <div class="mb-3">-->
+<!--            <label class="form-label">Address</label>-->
+<!--              <textarea class="form-control" name="ad" >{{ch_detail.child_address}}</textarea>-->
+<!--        </div>-->
+<!--         <div class="mb-3">-->
+
+<!--            <label class="form-label">Choose the vaccines taken your child:</label><br>-->
+<!--             <textarea class="form-control" name="vaccines" >{{ch_detail.child_vaccines}}</textarea>-->
+
+<!--         </div>-->
+        <div class="mb-3">
+            <input type="submit" value="EDIT DETAILS">
+        </div>
+    </div>
+</form>
+<script>
+        function calculateAge() {
+        console.log("hello")
+
+            var dob = document.getElementById('dob').value;
+            console.log(dob)
+            if (dob) {
+                var dobDate = new Date(dob);
+                console.log(dobDate)
+                var today = new Date();
+                console.log(today)
+
+                let age = today.getFullYear() - dobDate.getFullYear();
+                var months = today.getMonth() - dobDate.getMonth();
+
+                if (months < 0) {
+                    years--;
+                    months += 12;
+                } else if (months === 0 && today.getDate() < dobDate.getDate()) {
+                    years--;
+                    months = 11;
+                }
+
+                // Display the calculated age
+                document.getElementById('age').value = age +'years'+months+' months';
+<!--                document.getElementById('month').value = months;-->
+                console.log(age)
+            }
+        }
+</script>
+{% endblock %}
